@@ -1,18 +1,16 @@
 import mongoose from "mongoose";
+import("dotenv/config");
 
 mongoose
-	.connect(
-		"mongodb+srv://nyx-bot:qwas4213@cluster0.efayldv.mongodb.net/?retryWrites=true&w=majority",
-		{
-			dbName: "nyx-database",
-		}
-	)
+	.connect(process.env.BOT_TOKEN, {
+		dbName: "nyx-database",
+	})
 	.then(() =>
-		console.log("✅ | Banco de dados MongoDB conectado com sucesso!".green)
+		console.log("✅ | MongoDB database successfully connected!".green)
 	)
 	.catch(err =>
 		console.error(
-			`❌ | Um erro ocorreu durante a conexão com o banco de dados: ${err.message}`
+			`❌ | An error occurred while connecting to the database: ${err.message}`
 		)
 	);
 

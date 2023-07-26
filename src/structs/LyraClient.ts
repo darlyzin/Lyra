@@ -7,6 +7,7 @@ import {
 	Collection,
 	ApplicationCommandDataResolvable,
 	ClientEvents,
+	ActivityType,
 } from "discord.js";
 import dotenv from "dotenv";
 import fs from "fs";
@@ -22,7 +23,7 @@ dotenv.config();
 
 const fileCondition = (fileName: string) =>
 	fileName.endsWith(".ts") || fileName.endsWith(".js");
-export class ExtendedClient extends Client {
+export class LyraClient extends Client {
 	public commands: Collection<string, CommandType> = new Collection();
 	public buttons: ComponentsButton = new Collection();
 	public selects: ComponentsSelect = new Collection();
@@ -42,6 +43,15 @@ export class ExtendedClient extends Client {
 				Partials.ThreadMember,
 				Partials.User,
 			],
+			presence: {
+				activities: [
+					{
+						name: "Lyra v0.0.1",
+						type: ActivityType.Playing,
+					},
+				],
+				status: "idle",
+			},
 		});
 	}
 	public database = {};

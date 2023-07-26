@@ -1,49 +1,49 @@
 import {
-  ApplicationCommandData,
-  AutocompleteInteraction,
-  ButtonInteraction,
-  Collection,
-  CommandInteraction,
-  CommandInteractionOptionResolver,
-  ModalSubmitInteraction,
-  StringSelectMenuInteraction,
+	ApplicationCommandData,
+	AutocompleteInteraction,
+	ButtonInteraction,
+	Collection,
+	CommandInteraction,
+	CommandInteractionOptionResolver,
+	ModalSubmitInteraction,
+	StringSelectMenuInteraction,
 } from "discord.js";
-import { ExtendedClient } from "../ExtendedClient";
+import { LyraClient } from "../LyraClient";
 
 interface CommandProps {
-  client: ExtendedClient;
-  interaction: CommandInteraction;
-  options: CommandInteractionOptionResolver;
+	client: LyraClient;
+	interaction: CommandInteraction;
+	options: CommandInteractionOptionResolver;
 }
 
 export type ComponentsButton = Collection<
-  string,
-  (interaction: ButtonInteraction) => any
+	string,
+	(interaction: ButtonInteraction) => any
 >;
 export type ComponentsSelect = Collection<
-  string,
-  (interaction: StringSelectMenuInteraction) => any
+	string,
+	(interaction: StringSelectMenuInteraction) => any
 >;
 export type ComponentsModal = Collection<
-  string,
-  (interaction: ModalSubmitInteraction) => any
+	string,
+	(interaction: ModalSubmitInteraction) => any
 >;
 
 interface CommandComponents {
-  buttons?: ComponentsButton;
-  selects?: ComponentsSelect;
-  modals?: ComponentsModal;
+	buttons?: ComponentsButton;
+	selects?: ComponentsSelect;
+	modals?: ComponentsModal;
 }
 
 export type CommandType = ApplicationCommandData &
-  CommandComponents & {
-    run(props: CommandProps): any;
-    autoComplete?: (interaction: AutocompleteInteraction) => any;
-  };
+	CommandComponents & {
+		run(props: CommandProps): any;
+		autoComplete?: (interaction: AutocompleteInteraction) => any;
+	};
 
 export class Command {
-  constructor(options: CommandType) {
-    options.dmPermission = false;
-    Object.assign(this, options);
-  }
+	constructor(options: CommandType) {
+		options.dmPermission = false;
+		Object.assign(this, options);
+	}
 }

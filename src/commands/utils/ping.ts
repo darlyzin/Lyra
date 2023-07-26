@@ -18,11 +18,12 @@ export default new Command({
 
 		const embed = new EmbedBuilder({
 			description: `
-      Minha latência atual é de ${botPing}ms!
-      A latência do **WebSocket** é de ${wsPing}ms!`,
+      			Minha latência atual é de ${botPing}ms!
+     			A latência do **WebSocket** é de ${wsPing}ms!`,
 			color: parseInt(config.colors.blue),
 			timestamp: Date.now(),
 		});
+
 		await interaction.reply({
 			embeds: [embed],
 		});

@@ -1,29 +1,29 @@
 {
-  "name": "nyx-bot",
-  "version": "0.0.1",
-  "description": "Um bot de entretenimento e diversão para sua comunidade do discord!",
-  "main": "dist/index.js",
-  "scripts": {
-    "dev": "ts-node src/index.ts",
-    "start": "tsc && node .",
-    "build": "tsc"
-  },
-  "author": {
-    "name": "Eric Freitas",
-    "url": "https://github.com/uEriic"
-  },
-  "license": "Apache-2.0 license",
-  "devDependencies": {
-    "@types/mongoose": "^5.11.97",
-    "prettier": "^2.8.8",
-    "ts-node": "^10.9.1",
-    "typescript": "^5.1.6"
-  },
-  "dependencies": {
-    "colors": "^1.4.0",
-    "discord.js": "^14.11.0",
-    "dotenv": "^16.3.1",
-    "mongoose": "^7.3.1",
-    "ts-lib": "^0.0.5"
-  }
+	"name": "nyx-bot",
+	"version": "0.0.1",
+	"description": "Um bot de entretenimento e diversão para sua comunidade do discord!",
+	"main": "dist/index.js",
+	"scripts": {
+		"dev": "ts-node -r tsconfig-paths/register src/index.ts",
+		"build": "tsc && tsc-alias",
+		"start": "tsc && tsc-alias && node ."
+	},
+	"author": {
+		"name": "Eric Freitas",
+		"url": "https://github.com/uEriic"
+	},
+	"license": "Apache-2.0 license",
+	"devDependencies": {
+		"prettier": "^2.8.8",
+		"ts-node": "^10.9.1",
+		"tsc-alias": "^1.8.7",
+		"typescript": "^5.1.6"
+	},
+	"dependencies": {
+		"colors": "^1.4.0",
+		"discord.js": "^14.11.0",
+		"dotenv": "^16.3.1",
+		"mongoose": "^7.4.1",
+		"ts-lib": "^0.0.5"
+	}
 }
