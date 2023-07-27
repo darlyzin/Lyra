@@ -1,9 +1,8 @@
 import mongoose from "mongoose";
 import("dotenv/config");
 
-mongoose
-	.connect(process.env.BOT_TOKEN, {
-		dbName: "nyx-database",
+mongoose?.connect(process.env.MONGO_URL, {
+		dbName: "lyra-database",
 	})
 	.then(() =>
 		console.log("✅ | MongoDB database successfully connected!".green)

@@ -19,6 +19,7 @@ import {
 	ComponentsSelect,
 } from "./types/Command";
 import { EventType } from "./types/Event";
+import mainDatabase from "../database/mainClientDB";
 dotenv.config();
 
 const fileCondition = (fileName: string) =>
@@ -54,7 +55,7 @@ export class LyraClient extends Client {
 			},
 		});
 	}
-	public database = {};
+	public database = mainDatabase;
 	public start() {
 		this.registerModules();
 		this.registerEvents();
